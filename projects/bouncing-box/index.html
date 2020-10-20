@@ -8,7 +8,8 @@
 		.box {
 			width: 70px;
 			height: 70px;
-			background-color: teal;
+            background-color: red;
+            background-image: url("paper.gif");
 			font-size: 300%;
 			text-align: center;
 			display: block;
@@ -35,7 +36,8 @@
 			
 			var box = jQuery('.box');	// reference to the HTML .box element
 			var board = jQuery('.board');	// reference to the HTML .board element
-			var boardWidth = board.width();	// the maximum X-Coordinate of the screen
+            var boardWidth = board.width();	// the maximum X-Coordinate of the screen
+           
 
 			// Every 50 milliseconds, call the update Function (see below)
 			setInterval(update, 50);
@@ -45,7 +47,7 @@
 
 			// moves the Box to a new position on the screen along the X-Axis
 			function moveBoxTo(newPositionX) {
-				box.css("left", newPositionX);
+                box.css("left", newPositionX);
 			}
 
 			// changes the text displayed on the Box
@@ -58,7 +60,11 @@
 			//////////////////////////////////////////////////////////////////
 			
 			// TODO 2 - Variable declarations 
-			
+            var positionX = 0;
+            var points = 0;
+            var speed = 10;
+
+         
 
 			
 			/* 
@@ -67,8 +73,12 @@
 			turn it around! 
 			*/
 			function update() {
-				
-
+                positionX = positionX + speed;
+                moveBoxTo(positionX);
+                if (positionX > boardWidth) { speed = -speed;
+                }
+                if (positionX < 0) { speed = -speed;
+                }
 			};
 
 			/* 
@@ -76,10 +86,12 @@
 			it should increase the points total, increase the speed, and move the box to
 			the left side of the screen.
 			*/
-			function handleBoxClick() {
-				
-
-
+            function handleBoxClick() {
+                positionX = 0;
+                points = points + 1;
+                changeBoxText (points);
+                if (speed = speed) {speed = speed + 3}
+                else if (speed = -speed) {speed = speed - 3}
 			};
 		})();
 	</script>
