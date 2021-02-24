@@ -1,0 +1,9 @@
+### user story / gameplay
+- The game involves two players each controlling a paddle that they can move up and down to bounce a ball back and fourth. 
+- when the game begins there are two opposing paddles on each side of the screen and the ball begins in the very center of the screen. 
+- The game does not have an end.
+- If the ball touches a paddle it will change direction.
+  If the ball goes off of the screen on the left or right it will respawn in the center of the screen.
+  If a player successfully hits the ball past the other player's paddle they will get a point. 
+### visual game components:
+- The
