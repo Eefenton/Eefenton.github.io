@@ -12,7 +12,6 @@ function runProgram(){
   var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
 
   var KEY = {
-  "ENTER": 13,
   "ArrowDown": 40,
   "ArrowUp": 38,
   "ArrowLeft": 37,
@@ -26,7 +25,8 @@ var speedY = 0;
 
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
-  $(document).on('keydown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
+  $(document).on('keydown', handleKeyDown);   
+   $(document).on('keyup', handleKeyUp);                        // change 'eventType' to the type of event you want to handle
 
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
@@ -37,7 +37,8 @@ var speedY = 0;
   by calling this function and executing the code inside.
   */
   function newFrame() {
-    
+    repositionGameItem();
+    redrawGameItem();
 
   }
   
@@ -45,33 +46,44 @@ var speedY = 0;
   Called in response to events.
   */
   function handleKeyDown(event) {
-       if (event.which === KEY.ENTER) {
-    console.log("ENTER pressed");
-       }
+
        if (event.which === KEY.ArrowDown) {
-    console.log("ArrowDown pressed");
+           console.log("ArrowDown");
+           speedY = 5;
        }
        if (event.which === KEY.ArrowLeft) {
-    console.log("ArrowLeft pressed");
+           console.log("ArrowLeft")
+           speedX = -5;
        }
        if (event.which === KEY.ArrowRight) {
-    console.log("ArrowRight pressed");
+           console.log("ArrowRight")
+           speedX = 5;
        }
        if (event.which === KEY.ArrowUp) {
-    console.log("ArrowRight pressed");
+           console.log("ArrowRight")
+           speedY = -5;
+           
        }
-  }
+    }
+  function handleKeyUp(event) {
+      if (event.which === KEY.ArrowDown) {
+          speedY = 0;
+      }
+      if (event.which === KEY.ArrowLeft) {
+          speedX = 0;
+      }
+      if (event.which === KEY.ArrowRight) {
+          speedX = 0;
+      }
+      if (event.which === KEY.ArrowUp) {
+          speedY = 0;
+      }
+    }
+  
 
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
- function repositionGameItem() {
-     positionX += speedX;
-    }
-
- function redrawGameItem() {
-     $("#box").css("left", positionX);
-    }
 
   function endGame() {
     // stop the interval timer
@@ -80,5 +92,13 @@ var speedY = 0;
     // turn off event handlers
     $(document).off();
   }
-  
+  function repositionGameItem() {
+     positionX += speedX;
+     positionY += speedY;
+    }
+
+ function redrawGameItem() {
+     $("#box").css("left", positionX);
+     $("#box").css("top", positionY);
+    }
 }

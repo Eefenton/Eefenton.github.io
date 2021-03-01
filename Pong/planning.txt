@@ -1,9 +1,28 @@
 ### user story / gameplay
 - The game involves two players each controlling a paddle that they can move up and down to bounce a ball back and fourth. 
 - when the game begins there are two opposing paddles on each side of the screen and the ball begins in the very center of the screen. 
-- The game does not have an end.
+- The game ends when a player reaches 11 points
 - If the ball touches a paddle it will change direction.
-  If the ball goes off of the screen on the left or right it will respawn in the center of the screen.
-  If a player successfully hits the ball past the other player's paddle they will get a point. 
+- If the ball goes off of the screen on the left or right it will respawn in the center of the screen.
+- If a player successfully hits the ball past the other player's paddle they will get a point. 
+- If a ball bounces off a paddle its speed increases
+- if a ball colides with a wall it will bounce off
+- if a player reaches 11 points then the game will end
 ### visual game components:
-- The
+- paddles (animated)
+- ball (animated)
+- top wall (static)
+- bottom wall (static)
+### events / logic
+- up arrow will make the player's paddle move up.
+- down arrow will make the player's paddle move down. 
+- when the ball makes contact with a paddle it will travel in the opposite direction relative to that from which it came. 
+- When a ball is hit:
+  ball direction is reversed
+  ball speed is incresed 
+- when up arrow key is pressed
+  the player's paddle moves up by a set speed for the duration that the up arrow key is held pressed. 
+  when the player releases the up arrow key the paddle will stop moving.
+- when down arrow key is pressed
+  the player's paddle moves down by a set speed for the duration that the up arrow key is held pressed
+  when the player releases the down arrow key the paddle will stop moving. 
