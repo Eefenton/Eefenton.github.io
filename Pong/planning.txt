@@ -26,3 +26,9 @@
 - when down arrow key is pressed
   the player's paddle moves down by a set speed for the duration that the up arrow key is held pressed
   when the player releases the down arrow key the paddle will stop moving. 
+- When W key is pressed 
+  player 2's paddle moves up by a set speed for the duration that the w key is held pressed
+  when the player releases the w key the paddle stops moving 
+- when the S key is pressed
+  player 2's paddle moves down at a set speed for the duration that the S key is held pressed
+  when the player releases the S key the paddle stops moving. 

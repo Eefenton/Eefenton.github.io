@@ -10,13 +10,45 @@ function runProgram(){
   // Constant Variables
   var FRAME_RATE = 60;
   var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
-  
+
+  var KEY = {
+      "UP": 38,
+      "DOWN": 40,
+      "W": 87,
+      "S": 83
+  };
+
   // Game Item Objects
+  function factory($id){
+      var newObject = {
+          id: $id,
+          x: 20,
+          y: 20,
+          speedX: 0,
+          speedY: 0
+      }
 
+      return newObject;
+  }
+  
+var positionX = 0;
+var speedX = 0;
+var positionY = 0;
+var speedY = 0;
+ // creating objects //
+  var paddle1 = factory("#paddle1");
+  var paddle2 = factory("#paddle2");
+  var ball = factory("#ball");
+  
+  // assigning default speeds //
+ ball.speedX = 5,
 
+  console.log(ball);
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
-  $(document).on('eventType', handleEvent);                           // change 'eventType' to the type of event you want to handle
+  $(document).on('keyDown', handleKeyDown);     
+  $(document).on('keyUp', handleKeyUp);           
+   // change 'eventType' to the type of event you want to handle
 
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
@@ -27,17 +59,32 @@ function runProgram(){
   by calling this function and executing the code inside.
   */
   function newFrame() {
-    
-
+    //update ball position
+    repositionGameItem();
+    redrawGameItem();
   }
   
   /* 
   Called in response to events.
   */
-  function handleEvent(event) {
-
+  function handleKeyDown(event) {
+    if (event.which === KEY.S) {
+           console.log("S");
+           speedY = 5;
+    }
+    if (event.which === KEY.W) {
+           console.log("W");
+           speedY = -5;
+    }
   }
-
+   function handleKeyUp(event) {
+      if (event.which === KEY.S) {
+          speedY = 0;
+      }
+      if (event.which === KEY.W) {
+          speedY = 0
+      }
+    }
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
@@ -50,5 +97,12 @@ function runProgram(){
     // turn off event handlers
     $(document).off();
   }
-  
+  function repositionGameItem() {
+     positionX += speedX;
+     positionY += speedY;
+    
+ }
+ function redrawGameItem() {
+     $("paddle1").css("top", positionY);
+    }
 }
