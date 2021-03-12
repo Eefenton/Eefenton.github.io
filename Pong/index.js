@@ -31,10 +31,6 @@ function runProgram(){
       return newObject;
   }
   
-var positionX = 0;
-var speedX = 0;
-var positionY = 0;
-var speedY = 0;
  // creating objects //
   var paddle1 = factory("#paddle1");
   var paddle2 = factory("#paddle2");
@@ -58,10 +54,24 @@ var speedY = 0;
   On each "tick" of the timer, a new frame is dynamically drawn using JavaScript
   by calling this function and executing the code inside.
   */
+ // makes it move but does not redraw
+ function moveObject(gameObject){
+  
+moveObject(paddle1);
+moveObject(paddle2);
+moveObject(ball);
+ }
+ // redraws the object after being moved
+ function updatePosition(gameObject){
+
+moveObject(paddle1);
+moveObject(paddle2);
+moveObject(ball);
+ }
+  
   function newFrame() {
     //update ball position
-    repositionGameItem();
-    redrawGameItem();
+    
   }
   
   /* 
@@ -88,7 +98,7 @@ var speedY = 0;
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
-
+  
   
   function endGame() {
     // stop the interval timer
@@ -97,12 +107,5 @@ var speedY = 0;
     // turn off event handlers
     $(document).off();
   }
-  function repositionGameItem() {
-     positionX += speedX;
-     positionY += speedY;
-    
- }
- function redrawGameItem() {
-     $("paddle1").css("top", positionY);
-    }
+  
 }
