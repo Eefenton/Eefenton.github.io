@@ -42,7 +42,7 @@ function runProgram(){
   
 
   // assigning default speeds //
- ball.speedX = 1,
+ ball.speedX = 3,
 
   console.log(ball);
   // one-time setup
@@ -61,10 +61,9 @@ function runProgram(){
   */
  // makes it move but does not redraw
  function moveObject(objects){
-  objects.speedY
-  objects.y
- ball.x += ball.speedX
- paddle1.y += paddle1.speedY
+  
+ objects.y += objects.speedY
+ objects.x += objects.speedX
  }
  // redraws the object after being moved
  function updatePosition(objects) {
