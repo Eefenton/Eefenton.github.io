@@ -45,8 +45,8 @@ function runProgram(){
   
 
   // assigning default speeds //
+ ball.speedY = 3,
  ball.speedX = 3,
- ball.speedY = 3
   console.log(ball);
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
