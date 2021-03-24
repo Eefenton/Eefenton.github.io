@@ -23,14 +23,17 @@ function runProgram(){
   var boardHeight = $('#board').height();
 
   // Game Item Objects
-  function factory($id){
-      var newObject = {
-          id: $id,
-          x: 20,
-          y: 20,
-          speedX: 0,
-          speedY: 0
-      }
+  function factory ($id){
+  var object = {};
+  
+  object.id = $id; 
+  object.x = parseFloat($($id).css('left'));
+  object.y = parseFloat($($id).css('top'));
+  object.width = $($id).width();
+  object.height = $($id).height();
+  object.speedX = 0
+  object.speedY = 0
+  return object;
 
       return newObject;
   }
@@ -94,6 +97,11 @@ if (ball.x < 0) {
  }
    // tracks whether ball is touching paddle1, currently doesn't work
     if (doCollide(ball, paddle1)) {
+        ball.speedX = -ball.speedX
+    } else {
+        ball.speedX = ball.speedX
+    }
+    if (doCollide(ball, paddle2)) {
         ball.speedX = -ball.speedX
     } else {
         ball.speedX = ball.speedX
