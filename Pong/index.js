@@ -94,7 +94,7 @@ if (ball.x < 0) {
  }
    // tracks whether ball is touching paddle1, currently doesn't work
     if (doCollide(ball, paddle1)) {
-        ball.speedX = -ball.speedX; 
+        ball.speedX = -ball.speedX
     } else {
         ball.speedX = ball.speedX
     }
@@ -161,10 +161,10 @@ if (ball.x < 0) {
         obj1.rightX > obj2.leftX && 
         obj1.topY < obj2.bottomY &&
         obj1.bottomY > obj2.topY) {
-       ball.speedX = -ball.speedX;
+       return(true);
     }
     else {
-      ball.speedX = ball.speedX
+      return(false);
     }
   }
   
