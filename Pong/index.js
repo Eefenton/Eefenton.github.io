@@ -46,7 +46,7 @@ function runProgram(){
 
   // assigning default speeds //
  ball.speedX = 3,
-
+ ball.speedY = 3
   console.log(ball);
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
@@ -99,6 +99,7 @@ function runProgram(){
    // tracks whether ball is touching paddle1, currently doesn't work
     if (doCollide(ball, paddle1)) {
         ball.speedX = -ball.speedX
+        ball.speedY = -ball.speedY
     } else {
         ball.speedX = ball.speedX
     }
@@ -106,6 +107,11 @@ function runProgram(){
         ball.speedX = -ball.speedX
     } else {
         ball.speedX = ball.speedX
+    }
+    // track ball/floor collisions //
+    if (ball.y > boardHeight || ball.y < 0) {
+        ball.speedX = -ball.speedX
+        ball.speedY = -ball.speedY
     }
   }
   
