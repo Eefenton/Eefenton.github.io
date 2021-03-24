@@ -69,6 +69,7 @@ function runProgram(){
  function updatePosition(objects) {
   $(ball.id).css("left", ball.x)
   $(paddle1.id).css("top", paddle1.y)
+  $(paddle2.id).css("top", paddle2.y)
  }
   
   function newFrame() {
@@ -91,12 +92,18 @@ if (ball.x > boardWidth) {
 if (ball.x < 0) { 
     ball.speedX = -ball.speedX; 
  }
-   
+   // tracks whether ball is touching paddle1, currently doesn't work
+    if (doCollide(ball, paddle1)) {
+        ball.speedX = -ball.speedX; 
+    } else {
+        ball.speedX = ball.speedX
+    }
   }
   
   /* 
   Called in response to events.
   */
+         //paddle controls//
   function handleKeyDown(event) {
     if (event.which === KEY.S) {
            console.log("S");
@@ -122,22 +129,43 @@ if (ball.x < 0) {
       if (event.which === KEY.W) {
           paddle1.speedY = 0
       }
+      if (event.which === KEY.DOWN) {
+          paddle2.speedY = 0
+      }
+      if (event.which === KEY.UP) {
+          paddle2.speedY = 0
+      }
     }
+    
+
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
   
   // collision functions
   function doCollide(obj1, obj2) {
-      if (obj1.x = obj2.x) {
-          doCollide = true
-      }
-      if (doCollide = true) {
-          console.log ("collision!");
-      }
-      if (doCollide(paddle1, ball)) {
-          ball.speedX = -ball.speedX
-      }
+        // sides of the square1
+    obj1.leftX = obj1.x;
+    obj1.topY = obj1.y;
+    obj1.rightX = obj1.x + obj1.width;
+    obj1.bottomY = obj1.y + obj1.height; 
+    
+    // TODO: Do the same for square2
+    obj2.leftX = obj2.x;
+    obj2.topY = obj2.y;
+    obj2.rightX = obj2.x + obj2.width;
+    obj2.bottomY = obj2.y + obj2.height
+  
+    // TODO: Return true if they are overlapping, false otherwise
+    if (obj1.leftX < obj2.rightX &&
+        obj1.rightX > obj2.leftX && 
+        obj1.topY < obj2.bottomY &&
+        obj1.bottomY > obj2.topY) {
+       ball.speedX = -ball.speedX;
+    }
+    else {
+      ball.speedX = ball.speedX
+    }
   }
   
   function endGame() {
