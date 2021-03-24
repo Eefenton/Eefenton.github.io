@@ -89,10 +89,10 @@ function runProgram(){
  updatePosition(ball);
     // handle paddle/wall collisions
     if (checkPaddleColliion(paddle1)) {
-        paddle1.speedY = 0
+        paddle1.y -= paddle1.speedY = 0
     }
     if(checkPaddleColliion(paddle2)) {
-        paddle2.speedY = 0
+       paddle1.y -= paddle2.speedY = 0
     }
    // tracks whether ball is touching paddle1, currently doesn't work
     if (doCollide(ball, paddle1)) {
@@ -180,7 +180,7 @@ function runProgram(){
          obj.topY = obj.y;
          obj.bottomY = obj.y + obj.height; 
          // return true if overlapping with border 
-         if (obj.topY > boardHeight || obj.bottomY > boardHeight){
+         if (obj.topY < 0 || obj.bottomY > boardHeight){
              return true;
          }
          else {
