@@ -93,7 +93,7 @@ function runProgram(){
         paddle1.speedY = 0
     }
     if(checkPaddleColliion(paddle2)) {
-       paddle1.y -= paddle2.speedY 
+       paddle2.y -= paddle2.speedY 
        paddle1.speedY = 0
     }
    // tracks whether ball is touching paddle1, currently doesn't work
