@@ -71,6 +71,7 @@ function runProgram(){
  // redraws the object after being moved
  function updatePosition(objects) {
   $(ball.id).css("left", ball.x)
+  $(ball.id).css('top', ball.y)
   $(paddle1.id).css("top", paddle1.y)
   $(paddle2.id).css("top", paddle2.y)
  }
@@ -86,15 +87,13 @@ function runProgram(){
  //ball
  moveObject(ball);
  updatePosition(ball);
-    // handle collisions
-    
-    // TEMPORARY handles ball/wall collision
-if (ball.x > boardWidth) {
-    ball.speedX = -ball.speedX;
- }
-if (ball.x < 0) { 
-    ball.speedX = -ball.speedX; 
- }
+    // handle paddle/wall collisions
+    if (checkPaddleColliion(paddle1)) {
+        paddle1.speedY = 0
+    }
+    if(checkPaddleColliion(paddle2)) {
+        paddle2.speedY = 0
+    }
    // tracks whether ball is touching paddle1, currently doesn't work
     if (doCollide(ball, paddle1)) {
         ball.speedX = -ball.speedX
@@ -158,7 +157,7 @@ if (ball.x < 0) {
     obj1.rightX = obj1.x + obj1.width;
     obj1.bottomY = obj1.y + obj1.height; 
     
-    // TODO: Do the same for square2
+    // sides of the square2
     obj2.leftX = obj2.x;
     obj2.topY = obj2.y;
     obj2.rightX = obj2.x + obj2.width;
@@ -175,7 +174,25 @@ if (ball.x < 0) {
       return(false);
     }
   }
-  
+  // check for paddle collision //
+  function checkPaddleColliion (obj) {
+         // top and bottom of paddle //
+         obj.topY = obj.y;
+         obj.bottomY = obj.y + obj.height; 
+         // return true if overlapping with border 
+         if (obj.topY > boardHeight || obj.bottomY > boardHeight){
+             return true;
+         }
+         else {
+             return false;
+         }
+  }
+
+
+
+
+
+
   function endGame() {
     // stop the interval timer
     clearInterval(interval);
