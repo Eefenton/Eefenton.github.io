@@ -99,7 +99,7 @@ function runProgram(){
    // tracks whether ball is touching paddle1, currently doesn't work
     if (doCollide(ball, paddle1)) {
         ball.speedX = -ball.speedX
-        ball.speedY = -ball.speedY
+    
     } else {
         ball.speedX = ball.speedX
     }
@@ -111,7 +111,7 @@ function runProgram(){
     // track ball/floor collisions //
     if (ball.y > boardHeight || ball.y < 0) {
         ball.speedX = -ball.speedX
-        ball.speedY = -ball.speedY
+        
     }
   }
   
