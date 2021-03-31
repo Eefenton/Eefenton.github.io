@@ -45,8 +45,9 @@ function runProgram(){
   
 
   // assigning default speeds //
- ball.speedY = (Math.random() * 10) - 5;
- ball.speedX = (Math.random() > 0.5) ? 1 : -1;
+ ball.speedY = (Math.round(Math.random()) * 6) - 3;
+ ball.speedX = (Math.round(Math.random()) * 6) - 3;
+
 
   console.log(ball);
   // one-time setup
@@ -97,18 +98,16 @@ function runProgram(){
        paddle2.y -= paddle2.speedY 
        paddle1.speedY = 0
     }
-   // tracks whether ball is touching paddle1, currently doesn't work
+   // tracks whether ball is touching paddles
     if (doCollide(ball, paddle1)) {
         ball.speedX = -ball.speedX
         ball.speedY = (Math.round(Math.random()) * 6) - 3;
-
     } else {
         ball.speedX = ball.speedX
     }
     if (doCollide(ball, paddle2)) {
         ball.speedX = -ball.speedX
         ball.speedY = (Math.round(Math.random()) * 6) - 3;
-
     } else {
         ball.speedX = ball.speedX
     }
