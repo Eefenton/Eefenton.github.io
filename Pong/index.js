@@ -42,13 +42,14 @@ function runProgram(){
   var paddle1 = factory("#paddle1");
   var paddle2 = factory("#paddle2");
   var ball = factory("#ball");
-  var scorePaddle1 = ("#scorePaddle1");
-  var scorePaddle2 = ("#scorePaddle2");
+  var score1 = ("#score1");
+  var score2 = ("#score2");
 
   // assigning default speeds //
  ball.speedY = (Math.round(Math.random()) * 6) - 3;
  ball.speedX = (Math.round(Math.random()) * 6) - 3;
-
+ score1 = 0
+ score2 = 0 
 
   console.log(ball);
   // one-time setup
@@ -119,11 +120,17 @@ function runProgram(){
     if (ball.y < 0) {
        ball.speedY = -ball.speedY
     }
-    if (ball.x > boardLength) {
-        scorePaddle1 + 1
+    if (ball.x > boardWidth) {
+        ball.y = 300;
+        ball.x = 200;
+        score2 + 1;
+        $('score1').text(score2);
     }
      if (ball.x < 0) {
-        scorePaddle1 + 1
+        ball.x = 300;
+        ball.y = 200;
+        score1 + 1;
+        $('score1').text(score1);
     }
   }
   
