@@ -119,20 +119,32 @@ function runProgram(){
     if (ball.y < 0) {
        ball.speedY = -ball.speedY
     }
+    // scoring + ball reset // 
     if (ball.x > boardWidth) {
-        ball.y = 300;
-        ball.x = 200;
-        score2 + 1;
-        $('scorebox2').text(score2);
+        ball.x = 400;
+        ball.y = 200;
+        score1 = score1 + 1;
+        $('#scorebox1').text(score1);
     }
      if (ball.x < 0) {
-        ball.x = 300;
+        ball.x = 400;
         ball.y = 200;
-        score1 + 1;
-        $('scorebox1').text(score1);
+        score2 = score2 + 1;
+        $('#scorebox2').text(score2);
+    }
+    // Game ending //
+    if (score1 > 11) {
+        ball.speedY = 0
+        ball.speedX = 0
+        $('#board').text("Game Over, Player 1 Wins");
+    }
+    if (score2 > 11) {
+        ball.speedY = 0
+        ball.speedX = 0
+        $('#board').text("Game Over, Player 2 Wins");
     }
   }
-  
+
   /* 
   Called in response to events.
   */
