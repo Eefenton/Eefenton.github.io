@@ -67,3 +67,13 @@ body {
   top: 100px;
   left: 100px;
 }
+#scorePaddle1{
+position: absolute;
+top: 410px;
+left: 0px;
+}
+#scorePaddle2{
+position: absolute;
+top: 410;
+left: 500;
+}

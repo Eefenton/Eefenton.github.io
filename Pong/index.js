@@ -42,7 +42,8 @@ function runProgram(){
   var paddle1 = factory("#paddle1");
   var paddle2 = factory("#paddle2");
   var ball = factory("#ball");
-  
+  var scorePaddle1 = ("#scorePaddle1");
+  var scorePaddle2 = ("#scorePaddle2");
 
   // assigning default speeds //
  ball.speedY = (Math.round(Math.random()) * 6) - 3;
@@ -112,11 +113,17 @@ function runProgram(){
         ball.speedX = ball.speedX
     }
     // track ball/floor collisions //
-    if (ball.y > boardHeight || ball.y < 0) {
+    if (ball.y > boardHeight) {
        ball.speedY = -ball.speedY
-        ball.speedX = (Math.round(Math.random()) * 6) - 3;
-
-
+    }
+    if (ball.y < 0) {
+       ball.speedY = -ball.speedY
+    }
+    if (ball.x > boardLength) {
+        scorePaddle1 + 1
+    }
+     if (ball.x < 0) {
+        scorePaddle1 + 1
     }
   }
   
