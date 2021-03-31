@@ -100,13 +100,13 @@ function runProgram(){
     }
    // tracks whether ball is touching paddles
     if (doCollide(ball, paddle1)) {
-        ball.speedX = -ball.speedX
+        ball.speedX += 1.05
         ball.speedY = (Math.round(Math.random()) * 6) - 3;
     } else {
         ball.speedX = ball.speedX
     }
     if (doCollide(ball, paddle2)) {
-        ball.speedX = -ball.speedX
+        ball.speedX += -1.05
         ball.speedY = (Math.round(Math.random()) * 6) - 3;
     } else {
         ball.speedX = ball.speedX
