@@ -23,6 +23,7 @@ body {
   align-items: center;
   justify-content: center;
   color: white
+
 }
 #scorebox2{
   width: 100px;
@@ -37,6 +38,7 @@ body {
   align-items: center;
   justify-content: center;
   color: white
+  
 }
 /*/////// GameItems/////// */
 #paddle1{
@@ -76,14 +78,4 @@ body {
   position: absolute;
   top: 100px;
   left: 100px;
-}
-#score1{
-position: absolute;
-top: 410px;
-left: 0px;
-}
-#score2{
-position: absolute;
-top: 410;
-left: 500;
 }
