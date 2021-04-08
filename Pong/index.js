@@ -133,12 +133,12 @@ function runProgram(){
         $('#scorebox2').text(score2);
     }
     // Game ending //
-    if (score1 > 11) {
+    if (score1 > 10) {
         ball.speedY = 0
         ball.speedX = 0
         $('#board').text("Game Over, Player 1 Wins");
     }
-    if (score2 > 11) {
+    if (score2 > 10) {
         ball.speedY = 0
         ball.speedX = 0
         $('#board').text("Game Over, Player 2 Wins");
