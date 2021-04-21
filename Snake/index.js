@@ -14,8 +14,8 @@ function runProgram(){
   var KEY = {
       UP: 38,
       DOWN: 40,
-      W: 87,
-      S: 83,
+      LEFT: 37,
+      RIGHT: 39,
       ENTER: 13,
   };
 
@@ -27,6 +27,13 @@ function runProgram(){
   var apple = $('#apple');
 
   // one-time setup
+  snake[0].x = 0;
+  snake[0].y = 0;
+  snake[0].speedX = 10;
+  snake[0].speedY = 10;
+
+  apple.x = 100;
+  apple.y = 100;
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)                        // change 'eventType' to the type of event you want to handle
   $(document).on('keydown', handleKeyDown);     
   $(document).on('keyup', handleKeyUp);   
@@ -46,6 +53,38 @@ function runProgram(){
   /* 
   Called in response to events.
   */
+  function handleKeyDown(event) {
+    if (event.which === KEY.RIGHT) {
+           console.log("RIGHT");
+           snake[0].speedX = 5;
+    }
+    if (event.which === KEY.LEFT) {
+           console.log("LEFT");
+           snake[0].speedX = -5;
+    }
+    if (event.which === KEY.DOWN) {
+           console.log("DOWN");
+           snake[0].speedY = 5;
+    }
+    if (event.which === KEY.UP) {
+           console.log("UP");
+           snake[0].speedY = -5;
+    }
+  }
+   function handleKeyUp(event) {
+      if (event.which === KEY.RIGHT) {
+          snake[0].speedX = 0;
+      }
+      if (event.which === KEY.LEFT) {
+          snake[0].speedX = 0
+      }
+      if (event.which === KEY.DOWN) {
+          snake[0].speedY = 0
+      }
+      if (event.which === KEY.UP) {
+          paddle2.speedY = 0
+      }
+    }
   function handleEvent(event) {
 
   }
