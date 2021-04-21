@@ -82,7 +82,7 @@ function runProgram(){
           snake[0].speedY = 0
       }
       if (event.which === KEY.UP) {
-          paddle2.speedY = 0
+          snake[0].speedY = 0
       }
     }
   function handleEvent(event) {
