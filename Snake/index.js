@@ -31,10 +31,13 @@ function runProgram(){
   snake[0].y = 0;
   snake[0].speedX = 0;
   snake[0].speedY = 0;
+  snake[0].id = $('#snakeHead');
 
   apple.x = 0;
   apple.y = 0;
-  
+  apple.id = $('#apple');
+
+
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)                        // change 'eventType' to the type of event you want to handle
   $(document).on('keydown', handleKeyDown);     
   $(document).on('keyup', handleKeyUp);   
@@ -72,35 +75,26 @@ function runProgram(){
   function handleKeyDown(event) {
     if (event.which === KEY.RIGHT) {
            console.log("RIGHT");
-           snake[0].speedX = 5;
+           snake[0].speedX = 20;
+           snake[0].speedY = 0;
     }
     if (event.which === KEY.LEFT) {
            console.log("LEFT");
-           snake[0].speedX = -5;
+           snake[0].speedX = -20;
+           snake[0].speedY = 0;
     }
     if (event.which === KEY.DOWN) {
            console.log("DOWN");
-           snake[0].speedY = 5;
+           snake[0].speedY = 20;
+           snake[0].speedX = 0;
     }
     if (event.which === KEY.UP) {
            console.log("UP");
-           snake[0].speedY = -5;
+           snake[0].speedY = -20;
+           snake[0].speedX = 0;
     }
   }
-   function handleKeyUp(event) {
-      if (event.which === KEY.RIGHT) {
-          snake[0].speedX = 0;
-      }
-      if (event.which === KEY.LEFT) {
-          snake[0].speedX = 0
-      }
-      if (event.which === KEY.DOWN) {
-          snake[0].speedY = 0
-      }
-      if (event.which === KEY.UP) {
-          snake[0].speedY = 0
-      }
-    }
+   
   function handleEvent(event) {
 
   }
