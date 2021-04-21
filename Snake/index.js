@@ -29,11 +29,12 @@ function runProgram(){
   // one-time setup
   snake[0].x = 0;
   snake[0].y = 0;
-  snake[0].speedX = 10;
-  snake[0].speedY = 10;
+  snake[0].speedX = 0;
+  snake[0].speedY = 0;
 
   apple.x = 0;
   apple.y = 0;
+  
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)                        // change 'eventType' to the type of event you want to handle
   $(document).on('keydown', handleKeyDown);     
   $(document).on('keyup', handleKeyUp);   
@@ -55,12 +56,13 @@ function runProgram(){
 
  // redraws elements //
  function updatePosition(objects) {
-  $(snake.id).css("left", snake.x)
-  $(snake.id).css('top', snake.y)
+  $(snake[0].id).css("left", snake[0].x)
+  $(snake[0].id).css('top', snake[0].y)
  }
 
   function newFrame() {
-    
+    moveObject(snake[0]);
+ updatePosition(snake[0]);
 
   }
   
