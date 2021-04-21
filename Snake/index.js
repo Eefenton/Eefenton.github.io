@@ -32,8 +32,8 @@ function runProgram(){
   snake[0].speedX = 10;
   snake[0].speedY = 10;
 
-  apple.x = 100;
-  apple.y = 100;
+  apple.x = 0;
+  apple.y = 0;
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)                        // change 'eventType' to the type of event you want to handle
   $(document).on('keydown', handleKeyDown);     
   $(document).on('keyup', handleKeyUp);   
@@ -45,6 +45,20 @@ function runProgram(){
   On each "tick" of the timer, a new frame is dynamically drawn using JavaScript
   by calling this function and executing the code inside.
   */
+
+// moves but does not redraw //
+ function moveObject(objects){
+  
+ objects.y += objects.speedY
+ objects.x += objects.speedX
+ }
+
+ // redraws elements //
+ function updatePosition(objects) {
+  $(snake.id).css("left", snake.x)
+  $(snake.id).css('top', snake.y)
+ }
+
   function newFrame() {
     
 

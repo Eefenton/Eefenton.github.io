@@ -16,6 +16,8 @@ body {
   width: 20px;
   height: 20px;
   position: absolute;
+  left: 210px;
+  top: 210px;
 /*   left: 100px; */  /* Uncomment if you want to set a "starting" position */
 /*   top: 100px;  */  /* Uncomment if you want to set a "starting" position */
 }
@@ -25,4 +27,6 @@ body {
     width: 20px;
     height: 20px;
     position: absolute;
+    left: 20px;
+    top: 20px; 
 }
