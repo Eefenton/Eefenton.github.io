@@ -24,7 +24,7 @@ function applyFilter (filterFunction) {
 for (var i = 0; i < image.length; i++) {
     
     for (var j = 0; j < image[i].length; j++) {
-        var rgbString = [i][j]
+        var rgbString = image[i][j]
         var rgbNumbers =  rgbStringToArray(rgbString);
         filterFunction(rgbNumbers);
         var rgbString = rgbArrayToString(rgbNumbers);
