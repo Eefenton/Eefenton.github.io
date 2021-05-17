@@ -44,13 +44,13 @@ function applyFilterNoBackground (filterFunction){
     for (var j = 0; j < image[i].length; j++) {
         if (image[i][j] = background){
         }
-        else {}
+        else {
         var rgbString = image[i][j]
         var rgbNumbers =  rgbStringToArray(rgbString);
          filterFunction(rgbNumbers);
         var rgbString = rgbArrayToString(rgbNumbers);
         image[i][j] = rgbString
-        
+        }
     }
          
 }
