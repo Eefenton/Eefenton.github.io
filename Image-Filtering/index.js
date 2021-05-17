@@ -4,9 +4,9 @@ $(document).ready(function(){
     const $display = $('#display');
 
     // TODO: Call your apply function(s) here
-applyFilter(reddify);
-applyFilter(decreaseBlue);
-applyFilter(increaseGreenByBlue);
+applyFilterNoBackground(reddify);
+// applyFilter(decreaseBlue);
+// applyFilter(increaseGreenByBlue);
 
 
     render($display, image);
@@ -18,7 +18,7 @@ applyFilter(increaseGreenByBlue);
 function filterFunction () {
 }
 // TODO 1 & 3: Create the applyFilter function here
-function applyFilter (filterFunction) {
+function applyFilter(filterFunction) {
 
 for (var i = 0; i < image.length; i++) {
     
@@ -44,7 +44,7 @@ function applyFilterNoBackground (filterFunction){
     for (var j = 0; j < image[i].length; j++) {
         if (image[i][j] = background){
         }
-        else {applyFilterNoBackground()}
+        else {}
         var rgbString = image[i][j]
         var rgbNumbers =  rgbStringToArray(rgbString);
          filterFunction(rgbNumbers);
