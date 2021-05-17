@@ -15,7 +15,7 @@ applyFilterNoBackground(increaseGreenByBlue);
 /////////////////////////////////////////////////////////
 // "apply" and "filter" functions should go below here //
 /////////////////////////////////////////////////////////
-function filterFunction () {
+function filterFunction() {
 }
 // TODO 1 & 3: Create the applyFilter function here
 function applyFilter(filterFunction) {
@@ -38,22 +38,21 @@ for (var i = 0; i < image.length; i++) {
  
 // TODO 5: Create the applyFilterNoBackground function
 
-function applyFilterNoBackground (filterFunction){
-    var background = "rgb(150, 150, 150)"
+function applyFilterNoBackground(filterFunction){
+     var background = "rgb(150, 150, 150)"
     for (var i = 0; i < image.length; i++) {
     
     for (var j = 0; j < image[i].length; j++) {
-        if (image[i][j] = background){
         var rgbString = image[i][j]
         var rgbNumbers =  rgbStringToArray(rgbString);
-        var rgbString = rgbArrayToString(rgbNumbers);
+        if (image[i][j] = background){
+         rgbString = rgbArrayToString(rgbNumbers);
         image[i][j] = rgbString
         }
         else { 
-        var rgbString = image[i][j]
-        var rgbNumbers =  rgbStringToArray(rgbString);
+        
          filterFunction(rgbNumbers);
-        var rgbString = rgbArrayToString(rgbNumbers);
+         rgbString = rgbArrayToString(rgbNumbers);
         image[i][j] = rgbString
         }
         
@@ -63,14 +62,14 @@ function applyFilterNoBackground (filterFunction){
 }
 // TODO 2 & 4: Create filter functions
 
-function reddify (array){
-console.log(array[RED] = 255);
+function reddify(array){
+    array[RED] = 255;
 }
-function decreaseBlue (array){
+function decreaseBlue(array){
 Math.max(0, array[BLUE] = array[BLUE] - 30);
 }
 
-function increaseGreenByBlue (array){
+function increaseGreenByBlue(array){
 Math.min(0, array[GREEN] = array[GREEN] + array[BLUE]);
 }
 // CHALLENGE code goes below here
